@@ -20,12 +20,12 @@ JAVA_SOURCES=$(shell find src/main/java -name "*.java")
 $(file > target/java_sources.list,$(JAVA_SOURCES))
 
 target/classes.generated: $(JAVA_SOURCES) target/idls.generated
-	javac -d target/classes -sourcepath target/generated -cp $(JARS) @target/java_sources.list @target/generated_sources.list
+	javac -d target/classes -cp $(JARS) @target/java_sources.list @target/generated_sources.list
 	touch target/classes.generated
 
 target/idls.generated: $(IDLS)
 	$(JACORB_HOME)/bin/idl -d target/generated $(IDLS)
-	$(shell find target/generated -name "*.java" > target/generated_sources.list)
+	find target/generated -name "*.java" > target/generated_sources.list
 	touch target/idls.generated
 
 server:
