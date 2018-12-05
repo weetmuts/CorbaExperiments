@@ -1,0 +1,14 @@
+
+module foo
+{
+
+    typedef sequence < string > strings;
+
+    interface Messaging
+    {
+        string writeMessage(in string a1);
+        string writeMessages(in strings a1);
+        strings arryfy(in string a1, in long a2);
+    };
+
+};
