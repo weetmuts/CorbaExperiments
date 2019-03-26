@@ -1,8 +1,17 @@
 
-package foo;
+package foo.bar.v3;
+
+import foo.bar.Customer;
 
 public class MessagingImpl implements MessagingOperations
 {
+    public Customer loadCustomer( String ids )
+    {
+        System.out.println("Looking up customer: " + ids );
+        int id = Integer.parseInt(ids);
+        return new Customer(id, "Torkel", "Bangatan 32");
+    }
+
     public String writeMessage( String s )
     {
         System.out.println("Message: " + s );

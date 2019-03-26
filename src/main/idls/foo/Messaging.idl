@@ -1,14 +1,39 @@
 
 module foo
 {
+    module bar {
 
-    typedef sequence < string > strings;
+        typedef sequence < string > strings;
 
-    interface Messaging
-    {
-        string writeMessage(in string a1);
-        string writeMessages(in strings a1);
-        strings arryfy(in string a1, in long a2);
+        struct Customer {
+            long id;
+            string name;
+            string address;
+        };
+
+        module v3 {
+
+
+            interface Messaging
+            {
+                Customer loadCustomer(in string id);
+                string writeMessage(in string a1);
+                string writeMessages(in strings a1);
+                strings arryfy(in string a1, in long a2);
+            };
+        };
+
+        module v4 {
+
+            interface Messaging
+            {
+                Customer loadCustomer(in string id);
+                string writeMessage(in string a1);
+                string writeMessages(in strings a1);
+                strings arryfy(in string a1, in long a2);
+                strings closeMessages(in string a1);
+            };
+        };
+
     };
-
 };

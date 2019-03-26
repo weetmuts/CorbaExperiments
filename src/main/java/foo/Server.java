@@ -1,5 +1,6 @@
 package foo;
 
+import foo.bar.v3.*;
 import java.io.*;
 import org.omg.CosNaming.*;
 
